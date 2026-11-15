@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F5F7FB">
+<title>Tiara Aulia Tazri | Kumpul Tugas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+:root{
+  --bg:#F5F7FB;
+  --panel:#FFFFFF;
+  --tile:#F6F8FC;
+  --line:#DDE3EE;
+  --fg:#0F1B33;
+  --soft:#2B3A57;
+  --muted:#5E6B85;
+  --accent:#1D4ED8;
+  --accent-ink:#FFFFFF;
+  --accent-tint:rgba(29,78,216,.07);
+  --accent-line:rgba(29,78,216,.30);
+  --bad:#C62828;
+  --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--bg)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{
+  margin:0;color:var(--fg);font:15px/1.6 var(--font);
+  background:radial-gradient(70% 38% at 85% 0%,rgba(29,78,216,.10),transparent 70%),var(--bg);
+  padding-left:max(20px,env(safe-area-inset-left,0px));
+  padding-right:max(20px,env(safe-area-inset-right,0px));
+  padding-bottom:max(36px,env(safe-area-inset-bottom,0px));
+}
+h1,h2,h3,p{margin:0}
+a{color:inherit}
+svg{display:block;flex:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:860px;margin-inline:auto}
+.g{color:var(--accent)}
+
+/* hero */
+.hero{padding:52px 0 30px}
+h1{font-size:clamp(2.1rem,8.5vw,3.7rem);font-weight:800;line-height:1.12;letter-spacing:-.025em;text-wrap:balance}
+.lead{font-size:clamp(1.02rem,3.8vw,1.35rem);color:var(--soft);margin-top:18px}
+.desc{color:var(--muted);margin-top:22px;font-size:1.02rem}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:13px 20px;border-radius:14px;font:600 15px/1.2 var(--font);
+  text-decoration:none;cursor:pointer;border:1px solid transparent;
+}
+.btn.primary{background:var(--accent);color:var(--accent-ink);box-shadow:0 10px 28px rgba(29,78,216,.25)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.ghost{background:var(--panel);border-color:var(--line);color:var(--fg)}
+.btn.ghost:hover{border-color:var(--accent-line)}
+.btn:disabled{opacity:.6;cursor:progress}
+.btn.sm{padding:8px 13px;font-size:13px;border-radius:10px}
+.btn.danger{background:var(--bad);color:#fff}
+.icons{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.ico{
+  width:44px;height:44px;display:grid;place-items:center;border-radius:12px;
+  background:var(--panel);border:1px solid var(--line);color:var(--soft);text-decoration:none;
+}
+.ico:hover{border-color:var(--accent-line);color:var(--accent)}
+
+/* kartu besar */
+.big{background:linear-gradient(180deg,var(--panel),#F8FAFD);border:1px solid var(--line);border-radius:26px;padding:22px}
+.label{font:600 12.5px/1.3 var(--font);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.big > .label{padding-bottom:14px;margin-bottom:16px;border-bottom:1px solid var(--line)}
+.stats{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (min-width:760px){.stats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.tile{background:var(--tile);border:1px solid var(--line);border-radius:18px;padding:16px}
+.tile .top{display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--soft);font-size:14px}
+.tile .top svg{color:var(--accent)}
+.tile .n{font-size:2rem;font-weight:700;line-height:1.2;margin-top:10px;font-variant-numeric:tabular-nums}
+.tile .c{font-size:12.5px;color:var(--muted);margin-top:2px}
+.tile.hot{background:var(--accent-tint);border-color:var(--accent-line)}
+.tile.hot .top,.tile.hot .c{color:var(--accent)}
+
+/* bagian */
+section.sec{margin-top:44px;scroll-margin-top:20px}
+.sec h2{font-size:clamp(1.4rem,5vw,1.9rem);font-weight:800;letter-spacing:-.02em;margin-top:6px}
+.sec .sub{color:var(--muted);margin-top:6px}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:20px;margin-top:18px}
+.box h3{font-size:1.05rem;font-weight:700;margin-bottom:14px}
+
+.bar{height:8px;border-radius:999px;background:#E3E9F4;overflow:hidden;margin-top:12px}
+.bar i{display:block;height:100%;width:0;background:var(--accent);border-radius:999px;transition:width .4s}
+.barnote{font-size:13px;color:var(--muted);margin-top:8px}
+
+form{display:grid;gap:14px}
+.field{display:grid;gap:6px;min-width:0}
+label{font-weight:600;font-size:13px;color:var(--soft)}
+.opt{font-weight:400;color:var(--muted)}
+.row2{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+input,textarea{
+  width:100%;min-width:0;font:16px/1.4 var(--font);color:var(--fg);
+  background:var(--tile);border:1px solid var(--line);border-radius:12px;padding:12px 14px;
+}
+input::placeholder,textarea::placeholder{color:#8A96AD}
+input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(29,78,216,.15)}
+textarea{resize:vertical;min-height:80px}
+input[type=file]{padding:9px 11px;font-size:14px}
+input[type=file]::file-selector-button{
+  font:600 13px var(--font);margin-right:10px;padding:7px 12px;border-radius:8px;
+  border:1px solid var(--accent-line);background:var(--accent-tint);color:var(--accent);cursor:pointer;
+}
+.hint{font-size:12.5px;color:var(--muted)}
+.msg{min-height:1.3em;font-size:14px;font-weight:500}
+.msg.ok{color:var(--accent)}
+.msg.err{color:var(--bad)}
+form .btn{justify-self:start}
+
+.item{padding:16px 0;border-top:1px solid var(--line);display:grid;gap:4px}
+.list > .item:first-child{border-top:0;padding-top:2px}
+.item .row{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:6px 12px}
+.t{font-weight:700;font-size:16px;overflow-wrap:anywhere;min-width:0}
+.m{font-size:13px;color:var(--muted)}
+.m b{color:var(--accent);font-weight:600}
+.note{font-size:14px;color:var(--soft);white-space:pre-wrap;overflow-wrap:anywhere}
+.pill{
+  display:inline-flex;align-items:center;gap:6px;font:600 12px/1 var(--font);
+  padding:6px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap;
+}
+.pill.done{color:var(--accent);border-color:var(--accent-line);background:var(--accent-tint)}
+.acts{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:8px}
+.acts select{
+  font:600 13px var(--font);color:var(--fg);background:var(--tile);border:1px solid var(--line);
+  border-radius:10px;padding:8px 10px;
+}
+.empty{color:var(--muted)}
+.empty b{display:block;color:var(--soft);font-weight:600}
+.notice{margin-top:14px;padding:10px 13px;border-radius:12px;background:var(--accent-tint);border:1px solid var(--accent-line);color:var(--soft);font-size:13px}
+.notice[hidden]{display:none}
+.plink{color:var(--accent);font-weight:600;font-size:14px;overflow-wrap:anywhere}
+
+footer{margin-top:46px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+footer span{color:var(--soft);overflow-wrap:anywhere}
+footer button{
+  font:600 12px var(--font);margin-left:6px;padding:4px 9px;border-radius:8px;cursor:pointer;
+  border:1px solid var(--line);background:var(--panel);color:var(--soft);
+}
+footer button:hover{border-color:var(--accent-line)}
+.big,.box{box-shadow:0 1px 2px rgba(15,27,51,.04),0 8px 24px rgba(15,27,51,.05)}
+.tile{box-shadow:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero" id="atas">
+    <h1>Hai, saya <span class="g">Tiara Aulia Tazri</span></h1>
+    <p class="lead">Universitas Muhammadiyah Tasikmalaya — <span class="g">Teknik Elektro</span></p>
+    <p class="desc">Ini adalah web untuk mengumpulkan tugas-tugas.</p>
+    <div class="cta">
+      <a class="btn primary" href="#tugas">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2.5 9 2.5 12 0v-5"/></svg>
+        Periksa Tugas Kuliah
+      </a>
+      <a class="btn ghost" href="#portofolio">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        Eksplor Portofolio
+      </a>
+    </div>
+    <div class="icons">
+      <a class="ico" href="https://github.com/tiaratazri" target="_blank" rel="noopener noreferrer" aria-label="GitHub tiaratazri">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+      </a>
+      <a class="ico" href="https://www.instagram.com/tiaralt/" target="_blank" rel="noopener noreferrer" aria-label="Instagram @tiaralt">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+      </a>
+      <a class="ico" href="mailto:tiaraauliatazri67@gmail.com" aria-label="Email tiaraauliatazri67@gmail.com">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <section class="big" aria-labelledby="h-ringkas">
+    <p class="label" id="h-ringkas">Ringkasan Akademik</p>
+    <div class="stats">
+      <div class="tile">
+        <div class="top">Tugas Kuliah
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2.5 9 2.5 12 0v-5"/></svg>
+        </div>
+        <div class="n" id="sTugas">0</div>
+        <div class="c">Tersubmit</div>
+      </div>
+      <div class="tile">
+        <div class="top">Portofolio
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        </div>
+        <div class="n" id="sPorto">0</div>
+        <div class="c">Showcase</div>
+      </div>
+      <div class="tile hot">
+        <div class="top">Siap Dicek
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 7v5l3 2"/></svg>
+        </div>
+        <div class="n" id="sMenunggu">0</div>
+        <div class="c">Menunggu review</div>
+      </div>
+      <div class="tile hot">
+        <div class="top">Selesai / A
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>
+        </div>
+        <div class="n" id="sDinilai">0</div>
+        <div class="c">Dinilai</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="tugas" aria-labelledby="h-tugas">
+    <p class="label">Tugas Kuliah</p>
+    <h2 id="h-tugas">Kumpulkan tugasmu</h2>
+    <p class="sub">Isi formulir, unggah berkas, dan kiriman langsung tercatat.</p>
+
+    <div class="box">
+      <h3>Kirim tugas</h3>
+      <form id="form">
+        <div class="row2">
+          <div class="field">
+            <label for="nama">Nama</label>
+            <input id="nama" type="text" maxlength="80" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="matkul">Mata kuliah</label>
+            <input id="matkul" type="text" maxlength="80" required placeholder="Contoh: Rangkaian Listrik">
+          </div>
+        </div>
+        <div class="field">
+          <label for="judul">Judul tugas</label>
+          <input id="judul" type="text" maxlength="120" required placeholder="Contoh: Laporan Praktikum 3">
+        </div>
+        <div class="field">
+          <label for="berkas">Berkas</label>
+          <input id="berkas" type="file" required>
+          <p class="hint">Semua jenis berkas, maksimal 25 MB.</p>
+        </div>
+        <div class="field">
+          <label for="catatan">Catatan <span class="opt">(opsional)</span></label>
+          <textarea id="catatan" maxlength="400"></textarea>
+        </div>
+        <button class="btn primary" id="kirim" type="submit">Kumpulkan</button>
+        <p class="msg" id="msg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <div class="box">
+      <h3>Tugas terkumpul</h3>
+      <div class="bar" role="progressbar" aria-label="Progres penilaian" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="barWrap"><i id="barFill"></i></div>
+      <p class="barnote" id="barNote">Belum ada tugas.</p>
+      <p class="notice" id="notice" hidden></p>
+      <div class="list" id="listT" style="margin-top:14px"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="portofolio" aria-labelledby="h-porto">
+    <p class="label">Portofolio</p>
+    <h2 id="h-porto">Karya dan proyek</h2>
+    <p class="sub">Simpan tautan proyek, misalnya repositori GitHub atau desain rangkaian.</p>
+
+    <div class="box">
+      <h3>Tambah karya</h3>
+      <form id="formP">
+        <div class="field">
+          <label for="pJudul">Judul karya</label>
+          <input id="pJudul" type="text" maxlength="100" required placeholder="Contoh: Simulasi Inverter di Proteus">
+        </div>
+        <div class="field">
+          <label for="pLink">Tautan <span class="opt">(opsional)</span></label>
+          <input id="pLink" type="url" placeholder="https://github.com/tiaratazri/...">
+        </div>
+        <div class="field">
+          <label for="pDesk">Deskripsi singkat <span class="opt">(opsional)</span></label>
+          <textarea id="pDesk" maxlength="300"></textarea>
+        </div>
+        <button class="btn primary" type="submit">Simpan karya</button>
+        <p class="msg" id="msgP" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <div class="box">
+      <h3>Showcase</h3>
+      <div class="list" id="listP"></div>
+    </div>
+  </section>
+
+  <footer>
+    Email: <span id="emailText">tiaraauliatazri67@gmail.com</span><button type="button" id="copyEmail">Salin</button><br>
+    Instagram: <span>@tiaralt</span> · GitHub: <span>tiaratazri</span><br>
+    Data tersimpan di browser perangkat ini.
+  </footer>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+var KT='kumpul-tugas-tiara-v3',KP='kumpul-tugas-tiara-porto-v3';
+var MAX=25*1024*1024;
+var tugas=[],porto=[],idb=null,confirmId=null,loaded=false;
+var $=function(id){return document.getElementById(id)};
+
+function h(tag,attrs){
+  var e=document.createElement(tag);
+  if(attrs)Object.keys(attrs).forEach(function(k){
+    var v=attrs[k];if(v==null||v===false)return;
+    if(k==='class')e.className=v;
+    else if(k==='text')e.textContent=v;
+    else if(k.indexOf('on')===0)e.addEventListener(k.slice(2),v);
+    else e.setAttribute(k,v);
+  });
+  for(var i=2;i<arguments.length;i++){
+    [].concat(arguments[i]).forEach(function(kid){
+      if(kid==null||kid===false)return;
+      e.append(kid.nodeType?kid:document.createTextNode(String(kid)));
+    });
+  }
+  return e;
+}
+
+/* penyimpanan */
+function read(key){try{var a=JSON.parse(localStorage.getItem(key)||'[]');return Array.isArray(a)?a:[]}catch(e){return []}}
+function write(key,arr){try{localStorage.setItem(key,JSON.stringify(arr));return true}catch(e){return false}}
+function openIdb(){
+  return new Promise(function(res){
+    try{
+      var r=indexedDB.open('kumpul-tugas-tiara',1);
+      r.onupgradeneeded=function(){r.result.createObjectStore('berkas')};
+      r.onsuccess=function(){res(r.result)};
+      r.onerror=function(){res(null)};
+    }catch(e){res(null)}
+  });
+}
+function idbPut(id,blob){
+  return new Promise(function(res,rej){
+    try{
+      var tx=idb.transaction('berkas','readwrite');
+      tx.objectStore('berkas').put(blob,id);
+      tx.oncomplete=function(){res()};
+      tx.onerror=tx.onabort=function(){rej(new Error('simpan'))};
+    }catch(e){rej(e)}
+  });
+}
+function idbGet(id){
+  return new Promise(function(res,rej){
+    try{
+      var q=idb.transaction('berkas','readonly').objectStore('berkas').get(id);
+      q.onsuccess=function(){res(q.result)};
+      q.onerror=function(){rej(q.error)};
+    }catch(e){rej(e)}
+  });
+}
+function idbDel(id){
+  return new Promise(function(res){
+    try{
+      var tx=idb.transaction('berkas','readwrite');
+      tx.objectStore('berkas').delete(id);
+      tx.oncomplete=tx.onerror=tx.onabort=function(){res()};
+    }catch(e){res()}
+  });
+}
+
+/* format */
+function fmtDate(ts){
+  try{return new Intl.DateTimeFormat('id-ID',{dateStyle:'medium',timeStyle:'short'}).format(new Date(ts))}
+  catch(e){return new Date(ts).toLocaleString()}
+}
+function fmtSize(n){
+  if(!n)return '';
+  if(n<1024)return n+' B';
+  if(n<1048576)return Math.round(n/1024)+' KB';
+  return (n/1048576).toFixed(1)+' MB';
+}
+function newId(){return Date.now().toString(36)+Math.random().toString(36).slice(2,8)}
+function say(el,t,kind){el.textContent=t;el.className='msg'+(kind?' '+kind:'')}
+function notice(t){var n=$('notice');n.hidden=!t;n.textContent=t||''}
+
+/* tugas */
+function downloadFile(it){
+  if(!idb){notice('Penyimpanan berkas browser tidak tersedia.');return}
+  idbGet(it.id).then(function(blob){
+    if(!blob){notice('Berkas tidak ditemukan di browser ini.');return}
+    var url=URL.createObjectURL(blob);
+    var a=document.createElement('a');
+    a.href=url;a.download=it.fileName||'berkas';
+    document.body.append(a);a.click();a.remove();
+    setTimeout(function(){URL.revokeObjectURL(url)},15000);
+  }).catch(function(){notice('Berkas belum bisa dibuka.')});
+}
+function setStatus(it,s){
+  it.status=s;write(KT,tugas);render();
+}
+function removeTugas(it){
+  confirmId=null;
+  tugas=tugas.filter(function(x){return x.id!==it.id});
+  write(KT,tugas);
+  if(idb)idbDel(it.id);
+  render();
+}
+function removePorto(it){
+  porto=porto.filter(function(x){return x.id!==it.id});
+  write(KP,porto);render();
+}
+
+function rowTugas(it){
+  var done=it.status==='dinilai';
+  var sel=h('select',{'aria-label':'Status '+(it.judul||'tugas')});
+  sel.append(h('option',{value:'menunggu',text:'Menunggu review',selected:!done?'':null}));
+  sel.append(h('option',{value:'dinilai',text:'Dinilai',selected:done?'':null}));
+  sel.value=done?'dinilai':'menunggu';
+  sel.addEventListener('change',function(){setStatus(it,sel.value)});
+  var del=confirmId===it.id
+    ?[h('button',{type:'button',class:'btn sm danger',text:'Ya, hapus',onclick:function(){removeTugas(it)}}),
+      h('button',{type:'button',class:'btn sm ghost',text:'Batal',onclick:function(){confirmId=null;render()}})]
+    :h('button',{type:'button',class:'btn sm ghost',text:'Hapus',onclick:function(){confirmId=it.id;render()}});
+  return h('article',{class:'item'},
+    h('div',{class:'row'},
+      h('h3',{class:'t',text:it.judul||'(tanpa judul)'}),
+      h('span',{class:'pill'+(done?' done':''),text:done?'Dinilai':'Menunggu review'})
+    ),
+    h('p',{class:'m'},h('b',{text:it.matkul||'-'}),' · '+(it.nama||'Tanpa nama')+' · '+fmtDate(it.ts)),
+    it.catatan?h('p',{class:'note',text:it.catatan}):null,
+    h('div',{class:'acts'},
+      h('button',{type:'button',class:'btn sm ghost',text:'Unduh '+(it.fileName||'berkas')+(it.fileSize?' ('+fmtSize(it.fileSize)+')':''),onclick:function(){downloadFile(it)}}),
+      sel,del
+    )
+  );
+}
+
+function rowPorto(it){
+  var link=it.link&&/^https?:\/\//i.test(it.link)
+    ?h('a',{class:'plink',href:it.link,target:'_blank',rel:'noopener noreferrer',text:'Buka tautan'}):null;
+  return h('article',{class:'item'},
+    h('h3',{class:'t',text:it.judul}),
+    h('p',{class:'m',text:fmtDate(it.ts)}),
+    it.desk?h('p',{class:'note',text:it.desk}):null,
+    h('div',{class:'acts'},link,h('button',{type:'button',class:'btn sm ghost',text:'Hapus',onclick:function(){removePorto(it)}}))
+  );
+}
+
+function render(){
+  var all=tugas.slice().sort(function(a,b){return (b.ts||0)-(a.ts||0)});
+  var dinilai=all.filter(function(i){return i.status==='dinilai'}).length;
+  var menunggu=all.length-dinilai;
+  $('sTugas').textContent=all.length;
+  $('sPorto').textContent=porto.length;
+  $('sMenunggu').textContent=menunggu;
+  $('sDinilai').textContent=dinilai;
+
+  var pct=all.length?Math.round(dinilai/all.length*100):0;
+  $('barFill').style.width=pct+'%';
+  $('barWrap').setAttribute('aria-valuenow',pct);
+  $('barNote').textContent=all.length?dinilai+' dari '+all.length+' tugas sudah dinilai ('+pct+'%).':'Belum ada tugas.';
+
+  var lt=$('listT');lt.replaceChildren();
+  if(!loaded){lt.append(h('p',{class:'empty',text:'Memuat…'}))}
+  else if(!all.length){lt.append(h('div',{class:'empty'},h('b',{text:'Belum ada tugas terkumpul.'}),'Tugas yang kamu kirim akan muncul di sini.'))}
+  else all.forEach(function(it){lt.append(rowTugas(it))});
+
+  var lp=$('listP');lp.replaceChildren();
+  var ap=porto.slice().sort(function(a,b){return (b.ts||0)-(a.ts||0)});
+  if(!ap.length){lp.append(h('div',{class:'empty'},h('b',{text:'Belum ada karya.'}),'Tambahkan karya pertamamu lewat formulir di atas.'))}
+  else ap.forEach(function(it){lp.append(rowPorto(it))});
+}
+
+/* kirim tugas */
+$('form').addEventListener('submit',async function(ev){
+  ev.preventDefault();
+  var btn=$('kirim'),msg=$('msg');if(btn.disabled)return;
+  var nama=$('nama').value.trim(),matkul=$('matkul').value.trim(),judul=$('judul').value.trim();
+  var catatan=$('catatan').value.trim();
+  var file=$('berkas').files&&$('berkas').files[0];
+  if(!nama||!matkul||!judul){say(msg,'Lengkapi nama, mata kuliah, dan judul tugas.','err');return}
+  if(!file){say(msg,'Pilih berkas tugasmu dulu.','err');return}
+  if(file.size>MAX){say(msg,'Berkas lebih dari 25 MB. Kecilkan ukurannya dulu.','err');return}
+  if(!idb){say(msg,'Browser ini tidak mendukung penyimpanan berkas. Coba browser lain.','err');return}
+  btn.disabled=true;say(msg,'Mengirim…','');
+  try{
+    var id=newId();
+    await idbPut(id,file);
+    tugas.unshift({id:id,nama:nama,matkul:matkul,judul:judul,catatan:catatan,status:'menunggu',fileName:file.name.slice(0,120),fileSize:file.size,ts:Date.now()});
+    if(!write(KT,tugas)){tugas.shift();await idbDel(id);throw new Error('simpan')}
+    $('form').reset();
+    $('nama').value=nama;
+    try{localStorage.setItem(KT+'-nama',nama)}catch(e){}
+    say(msg,'Tugas terkirim. Terima kasih, '+nama+'!','ok');
+    render();
+  }catch(e){
+    say(msg,'Gagal menyimpan. Ruang penyimpanan browser mungkin penuh.','err');
+  }finally{
+    btn.disabled=false;
+  }
+});
+
+/* tambah karya */
+$('formP').addEventListener('submit',function(ev){
+  ev.preventDefault();
+  var msg=$('msgP');
+  var judul=$('pJudul').value.trim(),link=$('pLink').value.trim(),desk=$('pDesk').value.trim();
+  if(!judul){say(msg,'Isi judul karya.','err');return}
+  if(link&&!/^https?:\/\//i.test(link)){say(msg,'Tautan harus diawali http:// atau https://.','err');return}
+  porto.unshift({id:newId(),judul:judul,link:link,desk:desk,ts:Date.now()});
+  if(!write(KP,porto)){porto.shift();say(msg,'Gagal menyimpan. Ruang penyimpanan browser mungkin penuh.','err');return}
+  $('formP').reset();
+  say(msg,'Karya tersimpan.','ok');
+  render();
+});
+
+/* salin email */
+$('copyEmail').addEventListener('click',function(){
+  var btn=this,el=$('emailText');
+  function flash(s){btn.textContent=s;setTimeout(function(){btn.textContent='Salin'},1600)}
+  function pick(){
+    try{var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r)}catch(e){}
+    flash('Pilih lalu salin');
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(el.textContent).then(function(){flash('Tersalin')},pick);
+  }else pick();
+});
+
+/* mulai */
+try{var n=localStorage.getItem(KT+'-nama');if(n)$('nama').value=n}catch(e){}
+tugas=read(KT);porto=read(KP);
+render();
+openIdb().then(function(db){
+  idb=db;loaded=true;render();
+  if(!idb)notice('Penyimpanan berkas tidak tersedia di browser ini, jadi unggah berkas belum bisa dipakai.');
+});
+})();
+</script>
+</body>
+</html>
